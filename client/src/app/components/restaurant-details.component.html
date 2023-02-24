@@ -1,0 +1,30 @@
+
+
+				<div>Name: {{ restaurant.name }}</div>
+				<div>Cuisine: {{ restaurant.cuisine }}</div>
+				<p>Address: {{ restaurant.address }}</p>
+        <hr>
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+          <mat-form-field appearance="fill">
+            <mat-label>Comment</mat-label>
+
+            <mat-label>Name:</mat-label>
+            <input matInput formControlName="name" placeholder="Name"/>
+
+            <mat-label>Rating:</mat-label>
+            <input matInput formControlName="rating"/>
+
+            <textarea matInput formControlName="comment"></textarea>
+          </mat-form-field>
+          <button mat-stroked-button (click)="this.router.navigate([''])">Back</button>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="form.invalid"
+          >
+            Post Comment
+          </button>
+        </form>
+
+

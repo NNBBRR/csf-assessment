@@ -1,0 +1,11 @@
+<h1> List of {{ cuisine }} Restaurants</h1>
+
+<div class="container">
+
+<div *ngFor="let restaurant of restaurants">
+{{ restaurant.name }}
+</div>
+<div>
+  <button mat-raised-button color="primary" type="button" (click)="this.router.navigate([''])">Back</button>
+</div>
+</div>
