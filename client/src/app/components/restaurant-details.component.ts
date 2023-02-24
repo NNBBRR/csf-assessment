@@ -16,6 +16,8 @@ export class RestaurantDetailsComponent implements OnInit {
 
   form!: FormGroup;
   restaurant!: Restaurant;
+  name!: string;
+  comment!: string;
 
   constructor(
     private fb: FormBuilder,
