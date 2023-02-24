@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Restaurant } from '../models';
 import { RestaurantService } from '../restaurant-service';
 
 @Component({
@@ -14,6 +15,7 @@ export class RestaurantDetailsComponent implements OnInit {
 	// For View 3
 
   form!: FormGroup;
+  restaurant!: Restaurant;
 
   constructor(
     private fb: FormBuilder,
@@ -23,6 +25,15 @@ export class RestaurantDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.createForm();
+
+    this.restaurantSvc
+      .getRestaurant(this.name)
+      .then((res) => {
+        this.restaurant = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   createForm(): FormGroup {
